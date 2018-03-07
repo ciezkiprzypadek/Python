@@ -1,0 +1,16 @@
+#zadanie 4
+
+def funkcja1(x):
+	if(x > 0)
+
+def funkcja2(x):
+	return not (x%2)
+
+def funckjaTest(flogiczna, liczba):
+	if(flogiczna(liczba)):
+		return ("OK")
+	else
+		return("NO")
+
+print (funkcjaTest(funckja1,5))
+print (funkcjaTest(funckja2,5))
