@@ -1,0 +1,16 @@
+def funkcja1(x):
+	if (x > 0):
+	  return True
+
+def funkcja2(x):
+	if (x%2):
+	  return False
+
+def funckjaTest(flogiczna, liczba):
+	if(flogiczna(liczba)):
+		return ("OK")
+	else:
+		return("NO")
+
+print (funckjaTest(funkcja1,5))
+print (funckjaTest(funkcja2,5))
