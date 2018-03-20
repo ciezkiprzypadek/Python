@@ -1,0 +1,175 @@
+# Zadanie 1
+ 
+class LiczbaZespolona(object):
+  def __init__(self , re , im):
+    self.re = re
+    self.im = im
+   
+  def wyswietl(self):
+    print (self.re , self.im)
+   
+  def __add__(self , other):
+    self.dod_re = self.re + other.re
+    self.dod_im = self.im + other.im
+    return ("Wynik dodawania to: %d + %di" %(self.dod_re , self.dod_im))
+  def __sub__(self , other):
+    self.odd_re = self.re - other.re
+    self.odd_im = self.im - other.im
+    return ("Wynik odejmowania to: %d + %di" %(self.odd_re , self.odd_im))
+  def __mul__(self , other):
+    self.mul_re = self.re * other.re - self.im * other.im
+    self.mul_im = self.im * other.re + self.re * other.im
+    return ("Wynik mnozenia to: %d + %di" %(self.mul_re , self.mul_im))
+ 
+  def __truediv__(self , other):
+    self.div_re = (self.re * other.re - self.im * other.im)/(other.re*other.re + other.im * other.im)
+    self.div_im = (self.im * other.re + self.re * other.im)/(other.re*other.re + other.im * other.im)
+    return ("Wynik dzielnia to: %d + %di" %(self.div_re , self.div_im))
+   
+  def __eq__(self, other):
+    if(self.re == other.re and self.im == other.im):
+      return "Sa rowne ";
+    else:
+      return "Nie sa rowne";
+   
+  def modul(self):
+    self.mod = (self.re**2 + self.im**2)**0.5
+    if(self.mod < 0):
+      self.mod = self.mod * (-1)
+      return ("Modul: %f" % self.mod)
+ 
+a = LiczbaZespolona(1,2)
+ 
+b = LiczbaZespolona(1,2)
+ 
+print(a==b)
+ 
+print(a.modul())
+ 
+print(b.modul())
+ 
+print(a
+ 
++b)
+ 
+print(a-b)
+ 
+print(a*b)
+ 
+print(a/b)
+
+
+#ZAdanie2
+
+
+from math import sqrt
+ 
+class Punkt2D(object):
+  def __init__(self, x , y):
+    self.x = x
+    self.y = y
+ 
+  def odl(self, other):
+    return sqrt(((other.x - self.x)*(other.x - self.x)+(other.y - self.y)*(other.y - self.y)))
+   
+class Punkt3D(Punkt2D):
+  def __init__(self, x, y, z):
+    super().__init__(x, y)
+    self.z = z
+   
+  def odl(self, other):
+    return sqrt(((other.x-self.x)*(other.x-self.x)+(other.y-self.y)*(other.y-self.y)+(other.z-self.z)*(other.z-self.z)))
+   
+   
+ob1 = Punkt2D(1, 1)
+ 
+ob2 = Punkt2D(2, 2)
+ 
+ob3 = Punkt3D(1, 1, 1)
+ 
+ob4 = Punkt3D(3, 3, 3)
+ 
+print(ob1.odl(ob2))
+ 
+print(ob3.odl(ob4))
+
+
+#Zadanie3 
+
+
+class Kolo:
+  __promien = None
+  __material = None
+  def turlaj_sie():
+    print("kolo sie turla ")
+    
+  def umyj_kolo(self):
+    print("Kolo zostalo umyte ")
+    
+  def ustaw_promien(self, promien):
+    self.__promien = promien
+    
+  def ustaw_material(self, material):
+    self.__material = material
+    
+    
+class Karoseria:
+  __kolor = None
+  __material = None
+
+  def umyj_karoserie(self):
+    print("Karoseria zostalo umyte ")
+    
+  def ustaw_kolor(self, kolor):
+    self.__kolor = kolor
+    
+  def ustaw_material(self, material):
+    self.__material = material
+    
+class Silnik:
+  __moc = None
+  __pojemnosc = None
+
+  def odp(self):
+    print("Silnik zostal umyte ")
+    
+  def ustaw_moc(self, moc):
+    self.__moc = moc
+    
+  def ustaw_pojemnosc(self, pojemnosc):
+    self.__pojemnosc = pojemnosc
+    
+    
+class Samochod(Kolo, Karoseria, Silnik):
+  __rocznik = None
+  __marka = None
+  
+  def __init__(self , rocznik , marka):
+    self.__rocznik = rocznik
+    self.__marka = marka
+  
+  def wyswietl(self):
+    print(self.__rocznik , self.__marka)
+  
+  def umyjKaroserie(self):
+    super(Samochod, self).umyj_karoserie()
+    
+  def odpSilnik(self):
+    super(Samochod, self).odp()
+  
+  def turlaSie(self):
+    super(Samochod, self).turlaj_sie()
+    
+  def jedziemy(self):
+    print("Samochod jedzie ")
+    
+  def hamujemy(self):
+    print("Samochod hamuje ")
+    
+  def wlacz_migacz(self):
+    print("Migacz wlaczony")
+    
+    
+obiekt = Samochod(1888,"Samochodowa")
+print (obiekt.jedziemy())
+obiekt.wyswietl()
