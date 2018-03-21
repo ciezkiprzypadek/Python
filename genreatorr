@@ -1,0 +1,17 @@
+from fnmatch import fnmatch 
+from os import listdir 
+
+src = input("Podaj sciezka ") 
+src = src[:-1] 
+rozszerzenie = input("Podaj rozszerzenie ") 
+rozszerzenie = '*.' + rozszerzenie 
+pliki = listdir(src) 
+
+def funkcja( lista , rozszerzenie ): 
+	for x in lista:
+		if fnmatch(x , rozszerzenie):
+			yield x 
+
+lista = [x for x in f(pliki, rozszerzenie)] 
+
+print(pliki) 
