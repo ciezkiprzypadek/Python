@@ -1,0 +1,18 @@
+from math import sqrt
+
+from math import pow
+
+def krotki(punkty, pkt_kon):
+  lista =[]
+  for i in range (0, len(punkty)):
+    lista.append((sqrt((punkty[i][0] - pkt_kon[0])**2 + (punkty[i][1] - pkt_kon[1])**2), ((punkty[i][0]), (punkty[i][1]))))
+    
+  list_sort = sorted(lista, key = lambda tup: tup[0])
+  
+  return list_sort
+
+lista_punktow = [(0,0), (1,1), (9,9), (4,11), (3,7)]
+
+punkt_kontrolny = (0,0)
+
+print(krotki(lista_punktow, punkt_kontrolny))
