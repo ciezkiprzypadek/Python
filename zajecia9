@@ -1,0 +1,128 @@
+#z lekcji
+
+import Tkinter as tk
+
+root = tk.Tk()
+
+def labelConfig(label, text):
+	label.config(text = text, fg = "light green", bg="dark green")
+
+label = tk.Label(root, text='Hello world')
+label.pack()
+labelConfig(label,"123")
+import tkFont as tkF
+#default_font = tkF.nametofont("TkDefaultFont")
+#default_font.configure(size=20)
+#root.option_add("*Font", default_font)
+
+#L1 = tk.Label(root, text="L1", bg="green")
+#L2 = tk.Label(root, text="L2", bg="red")
+#L3 = tk.Label(root, text="L3", bg="blue")
+
+#L1.grid(row=0, column=0, rowspan=2)
+#L2.grid(row=0, column=1)
+#L3.grid(row=1, column=1)
+
+#state=0
+import tkMessageBox as tkMB
+#def echo_data(entr):
+#	tkMB.showinfo("Message ", entr.get())
+
+#def add(ent, val):
+#	global state
+#	state += val
+#	ent.delete(0, 'end')
+#	ent.insert(tk.END, str(state))
+
+#e1 = tk.Entry(root)
+#e1.grid(row=0, column=0, columnspan=2)
+
+#bt1 = tk.Button(root, text="1", command=lambda: add(e1, 1))
+#bt1.grid(row=1, column=0)
+
+#bt2 = tk.Button(root, text="2", command=lambda: add(e1, 2))
+#bt2.grid(row=1, column=1)
+
+#def stateChange(var):
+#	print(var.get())
+
+#var1 = tk.BooleanVar()
+#cb1 = tk.Checkbutton(root, text="T1", variable=var1, command=lambda: stateChange(var1))
+#cb1.grid(row=0, column=0)
+
+#var2 = tk.BooleanVar()
+#cb2 = tk.Checkbutton(root, text="T2", variable=var2, command=lambda: stateChange(var2))
+#cb2.grid(row=0, column=1)
+
+#v = tk.IntVar()
+
+#def readValue():
+#	print(v.get())
+
+#rb1 = tk.Radiobutton(root, text="1", variable=v, value=1, command=readValue)
+#rb1.grid(row=0, column=0)
+#rb2 = tk.Radiobutton(root, text="2", variable=v, value=2, command=readValue)
+#rb2.grid(row=1, column=0)
+
+#v2 = tk.IntVar()
+
+#rb3 = tk.Radiobutton(root, text="3", variable=v, value=3)
+#rb3.grid(row=2, column=0)
+#rb4 = tk.Radiobutton(root, text="4", variable=v, value=4)
+#rb4.grid(row=3, column=0)
+
+#scroll = tk.Scrollbar(root)
+#ta=tk.Text(root, height=10, width=50)
+#ta.pack(side=tk.LEFT, fill=tk.Y)
+#scroll.pack(side=tk.RIGHT, fill=tk.Y)
+#ta.config(yscrollcommand=scroll.set)
+#scroll.config(command=ta.yview)
+#ta.insert(tk.END, "Sample")
+
+#cnv = tk.Canvas(root, width=200, height=100)
+#cnv.pack()
+#cnv.create_rectangle(50,20,150,80,fill="yellow")
+#cnv.create_rectangle(65,35,135,65,fill="#476042") #kolejnosc jest wazna
+#cnv.create_line(0,0,50,20,fill="blue", width=3)
+#cnv.create_line(0,100,50,80,fill="blue", width=3)
+#cnv.create_line(150,20,200,0,fill="blue", width=3)
+#cnv.create_line(150,80,200,100,fill="blue", width=3)
+
+root.mainloop()
+
+
+#zadanie1
+
+import Tkinter as tk
+import tkFont as tkF
+import tkMessageBox as tkMB
+
+root = tk.Tk()
+
+default_font = tkF.nametofont("TkDefaultFont")
+default_font.configure(size=20)
+root.option_add("*Font", default_font)
+
+def echo_data():
+	tkMB.showinfo("Message ", "KOMUNIKAT")
+
+bt1 = tk.Button(root, text="start", command=echo_data)
+bt1.grid(row=0, column=0)
+
+v = tk.IntVar()
+
+def readValue(val):
+	bt1.config(fg=str(val))
+
+rb1 = tk.Radiobutton(root, text="red", variable=v, value="red", command=lambda:readValue("red"))
+rb1.grid(row=1, column=0)
+rb2 = tk.Radiobutton(root, text="green", variable=v, value="green", command=lambda:readValue("green"))
+rb2.grid(row=2, column=0)
+rb3 = tk.Radiobutton(root, text="blue", variable=v, value="blue", command=lambda:readValue("blue"))
+rb3.grid(row=3, column=0)
+
+root.mainloop()
+
+#zadanie2 
+
+
